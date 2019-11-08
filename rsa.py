@@ -60,8 +60,10 @@ e = int(input("Enter a number between 1 and {}: ".format(x)))
 #e must be coprime with the lcm of p-1 and q-1
 while coprime(e,x) == 0:
     e = int(input("Enter a valid number between 1 and {}".format(x)))
+#e is now the public key exponent
 
 #testing e^-1
-print(pow(e, -1))
+#print(pow(e, -1))
 
+#get d, where d = (1+k(lcm(p-1,q-1))/e), and it needs the extended euclidean algorithm to get
 
