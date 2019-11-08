@@ -62,8 +62,12 @@ while coprime(e,x) == 0:
     e = int(input("Enter a valid number between 1 and {}".format(x)))
 #e is now the public key exponent
 
-#testing e^-1
-#print(pow(e, -1))
+#define  k=e^−1(mod λ(n))
+k=pow(e,-1) % x
 
-#get d, where d = (1+k(lcm(p-1,q-1))/e), and it needs the extended euclidean algorithm to get
+#loop i until i mod λ(n) == k
+for i in range (0, n): #possibly change range to a bigger number
+    if i % x == k:
+        #var d now equals i because i satisfies congruency with e^-1
+        d = i
 
