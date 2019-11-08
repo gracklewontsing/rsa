@@ -1,3 +1,4 @@
+#get lcm
 def lcm(x,y):
     #get greater
     if x>y:
@@ -14,14 +15,17 @@ def lcm(x,y):
         #try again
     return lcm
 
+#get gcd
 def gcd (x,y):
     while y != 0:
         x,y = y, x % y
     return x
 
+#get coprimes
 def coprime (x, y):
     return gcd (x,y) == 1
 
+#get p
 p = int(input("Enter prime number value for p: "))
 
 if p > 1:
@@ -30,9 +34,10 @@ if p > 1:
             print ("please use prime numbers")
             exit()                
 
-
+#get q
 q = int(input("Enter prime number value for q: "))
 
+#q must be distinct form p
 if p == q:
     print("please use distinct values")
     exit()
@@ -42,14 +47,21 @@ if q > 1:
         if (q % i) == 0:
             print ("please use prime numbers")
             exit()
-        
+
+#n is pq
 n = p*q
-q = lcm(p-1,q-1)
 
-e = int(input("Enter a number between 1 and {}: ".format(q)))
-while coprime(e,q) == 0:
-    e = int(input("Enter a valid number between 1 and {}".format(q)))
+#get lcm of p-1 and q-1
+x = lcm(p-1,q-1)
 
+#choose e
+e = int(input("Enter a number between 1 and {}: ".format(x)))
+
+#e must be coprime with the lcm of p-1 and q-1
+while coprime(e,x) == 0:
+    e = int(input("Enter a valid number between 1 and {}".format(x)))
+
+#testing e^-1
 print(pow(e, -1))
 
 
