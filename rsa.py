@@ -1,7 +1,9 @@
-# get lcm
+import numbers
+
 from pip._vendor.distlib.compat import raw_input
 
 
+# get lcm
 def lcm(x, y):
     # get greater
     if x > y:
@@ -71,31 +73,29 @@ n = p * q
 
 # get lcm of p-1 and q-1
 phi = lcm(p - 1, q - 1)
+print('phi is ', phi)
 
 # get e
 e = 0
 for aux in range(2, phi - 1):
     if coprime(aux, n) != 0 and coprime(aux, phi):
         e = aux
-
+print('e is ', e)
 # e is now the public key exponent
 
 # define  k=e^−1(mod λ(n))
-# k = (e ** -1) % phi
-# print('k is ', k)
+k = (e ** -1) % phi
+print('k is ', k)
 
 # loop i until i mod λ(n) == k
-# for i in range(0, n):  # possibly change range to a bigger number
-# if i % phi == k:
-# var d now equals i because i satisfies congruency with e^-1
-#   d = i
-#  print('d is ', d)
+for i in range(0, n):  # possibly change range to a bigger number
+    print('i%phi ', i % phi)
+    if i % phi == k and gcd(e, phi) == 1:
+        # var d now equals i because i satisfies congruency with e^-1
+        d = i
 
-
-d = modInverse(e, phi)
-
-print('e is ', e)
 print('d is ', d)
+
 
 # take input and transform to numbers
 def letterstonumbers(str):
