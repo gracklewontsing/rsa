@@ -131,7 +131,49 @@ if select == 1:
     for w in text:        
         print("cipher is: ", encryption(w))
 
+<<<<<<< HEAD
 if select == 2:
     text = letterstonumbers('Enter cipher text: ')
     for w in text:
         print("plain is: ", decryption(w))
+=======
+print('d is ', d)
+
+
+# take input and transform to numbers
+def letterstonumbers(str):
+    inpu = raw_input(str)
+    inpu = inpu.lower()
+    outpu = []
+    for character in inpu:
+        number = ord(character) - 96
+        outpu.append(number)
+    return outpu
+
+
+def encryption(plain):
+    return (plain ** e) % n
+
+
+def decryption(cipher):
+    return (cipher ** d) % n
+
+
+selected = False
+select = 0
+
+while not selected:
+    select = int(input("Enter 1 for encryption or 2 for decryption: "))
+    if select == 1 or 2:
+        break
+
+if select == 1:
+    text = letterstonumbers('Enter plain text: ')
+    for w in text:
+        print(encryption(w))
+
+if select == 2:
+    text = letterstonumbers('Enter cipher text: ')
+    for w in text:
+        print(decryption(w))
+>>>>>>> 85e5bfe751f38b763672b0c0a5eaa0ae02b218a0
